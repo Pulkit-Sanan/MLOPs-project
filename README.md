@@ -8,12 +8,9 @@ This project understands how the student's performance (test scores) is affected
 
 Here we train the Model using diffrent diffrent features of students and predict the MATH SCORE Performence as a regression Problem.
 
-[Dataset Source - https://www.kaggle.com/datasets/spscientist/students-performance-in-exams?datasetId=74977]
 -------------------------------------------------
 
 - Open and view the Project download the  `.zip` file provided at my [GitHub Repository] OR Clone Repo.
-
-- The project is also hosted on [koyeb.com] [Demo]<https://bottom-natalina-zero1.koyeb.app/>
 
 ## Table of Contents
 
@@ -23,9 +20,6 @@ Here we train the Model using diffrent diffrent features of students and predict
 - [Development](#development)
 - [Running the App](#running-the-app)
 - [Deployment](#deployment)
-- [Authors](#authors)
-- [License](#license)
-- [Acknowledgments](#acknowledgments)
 
 ## Getting Started
 
@@ -94,7 +88,6 @@ All tools required go here. You would require the following tools to develop and
 
 - A text editor or an IDE (like VsCode)
 - Github Account [For Code Upload]
-- koyeb.com || Account [For Web Hosting]
 - Anaconda or Python [ For Create Virtual Environment ]
 
 ### Installation
