@@ -66,14 +66,14 @@ All installation steps go here.
 
 - ### Run on Local system
 
-- Open the  terminal
-- activate the conda environment
-`conda activate myenv`
-- go to the  Project directory/folder like me
-    `(myenv) S:\new\final_project\ml_end_to_end_project>`
-- RUN `python app.py`
-- Go to Browser paste localhost `http://127.0.0.1:5000/`
-- Awesome Project run on your localhost
+  - Open the  terminal
+  - activate the conda environment
+  `conda activate myenv`
+  - go to the  Project directory/folder like me
+      `(myenv) S:\new\final_project\ml_end_to_end_project>`
+  - RUN `python app.py`
+  - Go to Browser paste localhost `http://127.0.0.1:5000/`
+  - Awesome Project run on your localhost
 
 ## Development
 
@@ -100,14 +100,7 @@ This section gives some insight basic overview of Development.
 - Dataset Source - <https://www.kaggle.com/datasets/spscientist/students-performance-in-exams?datasetId=74977>
 - The data consists of 8 columns and 1000 rows.
 
-### 2.1 Import Data and Required Packages
-
-#### Importing Pandas, Numpy, Matplotlib, Seaborn, and Warnings Library
-
-- data =pd.read_csv()
-- df.shape
-
-### 2.2 Dataset information
+### Dataset information
 
 - gender : sex of students  -> (Male/female)
 - race/ethnicity : ethnicity of students -> (Group A, B,C, D,E)
@@ -133,27 +126,27 @@ This section gives some insight basic overview of Development.
   - [check stats of data -->`df.describe()`]
   - checking the get unique value  of each column --> `df.unique()`
 
-- ### 4. Exploring Data ( Visualization )
+### 4. Exploring Data ( Visualization )
 
-  - `Matplotlib and Seaborn`[Histogram, Kernel Distribution Function (KDE), pie, bar, Boxplot(check outliers), pairplot]
-  - Multivariate analysis using pieplot
-  - Feature Wise Visualization
-  - UNIVARIATE ANALYSIS
-  - BIVARIATE ANALYSIS
+- `Matplotlib and Seaborn`[Histogram, Kernel Distribution Function (KDE), pie, bar, Boxplot(check outliers), pairplot]
+- Multivariate analysis using pieplot
+- Feature Wise Visualization
+- UNIVARIATE ANALYSIS
+- BIVARIATE ANALYSIS
 
-- ### 5. MODELING
+### 5. MODELING
 
-  - Importing Sklearn, Pandas, Numpy, Matplotlib, Seaborn etc.
-  - Preparing X and Y variables
-  - Transform the into a numerical datatype to perform Models
-  - Create Column Transformer
-  - preprocessing data using OneHotEncoder, StandardScaler
-  - Create an Evaluate Function to give all metrics after model Training
-    - [mae, rmse, r2_square, mse] For  regression Problem
+- Importing Sklearn, Pandas, Numpy, Matplotlib, Seaborn etc.
+- Preparing X and Y variables
+- Transform the into a numerical datatype to perform Models
+- Create Column Transformer
+- preprocessing data using OneHotEncoder, StandardScaler
+- Create an Evaluate Function to give all metrics after model Training
+  - [mae, rmse, r2_square, mse] For  regression Problem
 
-  - Create Model lists and run using a loop at once so that there no-repeat same task for all model
+- Create Model lists and run using a loop at once so that there no-repeat same task for all model
 
-    - ```[models ={
+  - ```[models ={
                     - "Linear Regression": LinearRegression(),
                     "Lasso": Lasso(),
                     "Ridge": Ridge(),
@@ -166,9 +159,9 @@ This section gives some insight basic overview of Development.
                 }]
                 ```
 
-  - Results [Choose the best model with the help of the evaluate Function, especially using R2Score]
-    - Now predict the model `lin_model.predict(X_test)`
-    - Plot y_pred and y_test [visualize data] `plt.scatter(y_test,y_pred)`
-      - `sns.regplot(x=y_test,y=y_pred,ci=None,color ='red');`
-      - Difference between Actual and Predicted Values
-        - `pd.DataFrame({'Actual Value':y_test,'Predicted Value':y_pred,'Difference':y_test-y_pred})`
+- Results [Choose the best model with the help of the evaluate Function, especially using R2Score]
+  - Now predict the model `lin_model.predict(X_test)`
+  - Plot y_pred and y_test [visualize data] `plt.scatter(y_test,y_pred)`
+    - `sns.regplot(x=y_test,y=y_pred,ci=None,color ='red');`
+    - Difference between Actual and Predicted Values
+      - `pd.DataFrame({'Actual Value':y_test,'Predicted Value':y_pred,'Difference':y_test-y_pred})`
