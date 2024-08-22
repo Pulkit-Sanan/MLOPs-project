@@ -1,86 +1,38 @@
-# Student Performance Analysis
+# Student Performance Analysis - MLOps Project
 
-### Machine Learning End-to-End Project
+## Overview
 
-## Project Description
+The "Student Performance Analysis" project is a comprehensive end-to-end machine learning solution designed to predict students' math scores based on various demographic and socio-economic factors. This project demonstrates the application of MLOps principles, covering the entire machine learning lifecycle from data ingestion to model deployment. It serves as a practical example of how to structure and implement machine learning projects in a production environment, with a focus on reproducibility, scalability, and maintainability.
 
-This project understands how the student's performance (test scores) is affected by other variables such as Gender, Ethnicity, Parental level of education, Lunch and Test preparation course.
+## Project Structure
 
-Here we train the Model using diffrent diffrent features of students and predict the MATH SCORE Performence as a regression Problem.
+- **notebooks:** Contains Jupyter notebooks for exploratory data analysis (EDA) and model training.
+- **src:** This directory is organized into several subdirectories, each focusing on a specific component of the MLOps pipeline:
+  - **data:**
+    - **`data_ingestion.py`**: Script responsible for loading and splitting the dataset into training and test sets, ensuring that the data is properly formatted and ready for processing.
+  - **features:**
+    - **`build_features.py`**: Contains functions for feature engineering and data preprocessing, including handling missing values, encoding categorical variables, and scaling numerical features.
+  - **models:**
+    - **`train_model.py`**: Script to train various machine learning models using the preprocessed data. This script also handles the saving of trained models for future use.
+    - **`predict_model.py`**: Script that loads the saved models and uses them to make predictions on new data, ensuring consistent and efficient predictions.
+    - **`evaluate_model.py`**: Contains functions for evaluating the performance of the trained models, computing metrics like accuracy, mean squared error (MSE), and R-squared, and comparing different models.
+  - **utils:**
+    - **`logger.py`**: Provides custom logging functionality to track the progress and status of various processes within the pipeline, making it easier to trace errors and debug issues.
+    - **`helpers.py`**: Contains utility functions that support the main scripts, such as data splitting, performance metric calculation, and other repetitive tasks.
 
--------------------------------------------------
+- **templates:** HTML templates for the web interface used in the deployment phase.
+- **Dockerfile:** Configuration file for containerizing the application, ensuring that it can be easily deployed in various environments.
+- **requirements.txt:** Lists all the Python dependencies required for the project, ensuring that the environment can be replicated easily.
 
-- Open and view the Project download the  `.zip` file provided at my [GitHub Repository] OR Clone Repo.
+## Experiment Notebook
 
-## Table of Contents
+The `Experiment.ipynb` notebook is the primary environment for exploratory data analysis and experimentation. It includes:
 
-- [Getting Started](#getting-started)
-  - [Tools Required](#tools-required)
-  - [Installation](#installation)
-- [Development](#development)
-- [Running the App](#running-the-app)
-- [Deployment](#deployment)
-
-## Getting Started
-
-The project has master branch: `main`, which can be explained here
-
-- `main` contains the aggregate code
-
-Other details that need to be given while starting out with the project can be provided in this section. A project structure like below can also be included for the big projects:
-
-```
-    end-to-end ML project
-    │   .gitignore
-    │   app.py
-    │   README.md
-    │   requirements.txt
-    │   setup.py
-    │
-    ├───artifacts
-    │       data.csv
-    │       model.pkl
-    │       preprocessor.pkl
-    │       test.csv
-    │       train.csv
-    │
-    ├───notebooks
-    │   │   experiment.ipynb
-    │   │   model_trainig.ipynb
-    │   │
-    │   └───catboost_info
-    ├───logs
-    │   ├───01_09_2024_13_22_57.log
-    │   
-    ├───mlproject.egg-info
-    │       dependency_links.txt
-    │       PKG-INFO
-    │       requires.txt
-    │       SOURCES.txt
-    │       top_level.txt
-    │
-    ├───src
-    │   │   exception.py
-    │   │   logger.py
-    │   │   utils.py
-    │   │   __init__.py
-    │   │
-    │   ├───components
-    │   │   │   data_ingestion.py
-    │   │   │   data_transformation.py
-    │   │   │   model_trainer.py
-    │   │   │   __init__.py
-    │   │
-    │   ├───pipeline
-    │       │   predict_pipeline.py
-    │       │   train_pipline.py
-    │       │   __init__.py
-    │       
-    │
-    └───templates
-            index.html
-            predict.html
-```
+- **Data Loading:** Initial data exploration, including loading the dataset and examining basic statistics.
+- **Exploratory Data Analysis (EDA):** Visualization and analysis of key features, such as gender, ethnicity, parental education, lunch type, and test preparation, to understand their impact on students' math scores.
+- **Data Preprocessing:** Handling missing values, encoding categorical variables into numerical format, and scaling features to prepare the data for modeling.
+- **Model Selection:** Training and evaluating multiple machine learning models, including Linear Regression, Decision Trees, and Random Forests, to find the best-performing model.
+- **Hyperparameter Tuning:** Optimizing model performance through techniques like Grid Search and Cross-Validation.
 
 ### Tools Required
 
@@ -89,6 +41,13 @@ All tools required go here. You would require the following tools to develop and
 - A text editor or an IDE (like VsCode)
 - Github Account [For Code Upload]
 - Anaconda or Python [ For Create Virtual Environment ]
+
+## Running the App
+
+- if not clone the project on the local system 1st clone
+- open cmd and go to project directory `cd projectDir`
+THEN `git clone https://github.com/shahil04/end_to_end_ml_project.git`
+- CREATE Virtual Environment Using Conda
 
 ### Installation
 
@@ -104,12 +63,23 @@ All installation steps go here.
   - Run on the same Folder where your project requirements.txt file available
   - Like --> [(myenv) S:\new\final_project\ml_end_to_end_project>] this is my cmd path
   - Run `python install -r requirements.txt`
-  
+
+- ### Run on Local system
+
+- Open the  terminal
+- activate the conda environment
+`conda activate myenv`
+- go to the  Project directory/folder like me
+    `(myenv) S:\new\final_project\ml_end_to_end_project>`
+- RUN `python app.py`
+- Go to Browser paste localhost `http://127.0.0.1:5000/`
+- Awesome Project run on your localhost
+
 ## Development
 
 This section gives some insight basic overview of Development.
 
-#### Life cycle of Machine Learning Project
+### Life cycle of Machine Learning Project
 
 #### Do EDA Task --> In Experiment.ipynb
 
@@ -202,23 +172,3 @@ This section gives some insight basic overview of Development.
       - `sns.regplot(x=y_test,y=y_pred,ci=None,color ='red');`
       - Difference between Actual and Predicted Values
         - `pd.DataFrame({'Actual Value':y_test,'Predicted Value':y_pred,'Difference':y_test-y_pred})`
-
-## Running the App
-
-- if not clone the project on the local system 1st clone
-- open cmd and go to project directory `cd projectDir`
-THEN `git clone https://github.com/shahil04/end_to_end_ml_project.git`
-- CREATE Virtual Environment Using Conda
-
-THEN
-
-- ### Run on Local system
-
-- Open the  terminal
-- activate the conda environment
-`conda activate myenv`
-- go to the  Project directory/folder like me
-    `(myenv) S:\new\final_project\ml_end_to_end_project>`
-- RUN `python app.py`
-- Go to Browser paste localhost `http://127.0.0.1:5000/`
-- Awesome Project run on your localhost
